@@ -2,9 +2,9 @@ require 'test_helper'
 
 class StaticPagesControllerTest < ActionController::TestCase
   test "should get home" do
-    get :home
+    get :home    
     assert_response :success
-    assert_select "title" , "Home | ROR sample app"
+    assert_select "title" , "ROR sample app"
   end
 
   test "should get help" do
