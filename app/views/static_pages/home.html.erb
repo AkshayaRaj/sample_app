@@ -1,12 +1,14 @@
-<!--% provide(:title,"Home") %-->
+<div class="center jumbotron">
+  <h1>Welcome to the Sample App</h1>
 
-<!DOCTYPE html>
-<html>
-<h1>Home</h1>
+  <h2>
+    This is the home page for the
+    <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+    sample application.
+  </h2>
 
-<p>
-  The website <a href="http://www.google.com"><em>google.com </em></a>is a very good place to search things online
-</p>
+  <%= link_to "Sign up now!", '#', class: "btn btn-lg btn-primary" %>
+</div>
 
-
-</html>
+<%= link_to image_tag("rails.png", alt: "Rails logo"),
+            'http://rubyonrails.org/' %>
