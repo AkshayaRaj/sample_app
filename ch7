@@ -1,0 +1,78 @@
+If you ever need to run a console in a different environment (to debug a test, for example), you can pass the environment as a parameter to the console script:
+
+  $ rails console test
+  Loading test environment
+  >> Rails.env
+  => "test"
+  >> Rails.env.test?
+  => true
+
+
+A mixin allows a group of CSS rules to be packaged up and used for multiple elements, converting
+
+add resources :<name_of_resource> to the routes file to get REST oriented URI's .. eg:
+/users/1
+
+
+To release the prompt and continue execution of the application, press Ctrl-D, then remove the debugger line from the show action (Listing 7.7).
+
+def gravatar_for(user)
+    gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
+    gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
+    image_tag(gravatar_url, alt: user.name, class: "gravatar")  # here the css class will be gravatar
+end
+
+
+user.update_attributes(name: "Example User",
+?>                        email: "example@railstutorial.org",
+?>                        password: "foobar",
+?>                        password_confirmation: "foobar")
+
+
+CSS info :
+we can add a <section> to html . The section can have a class , <section class="users"..
+now in the css referece this way:
+section.user{
+
+}
+
+
+Since we’re about to add the ability to create new users through the web, let’s remove
+the user created at the console in Section 6.3.4. The cleanest way to do this is to reset
+the database with the db:migrate:reset
+
+
+<form action="/users" class="new_user" id="new_user" method="post">:
+The action is the page to which the data is submitted
+
+
+In the present instance, we want to require the params hash to have a :user attribute,
+and we want to permit the name, email, password, and password confirmation attributes
+(but no others). We can accomplish this as follows:
+params.require(:user).permit(:name, :email, :password, :password_confirmation)
+
+
+$ rails console
+>> user = User.new(name: "Foo Bar", email: "foo@invalid",
+?>                 password: "dude", password_confirmation: "dude")
+>> user.save
+=> false
+>> user.errors.full_messages
+=> ["Email is invalid", "Password is too short (minimum is 6 characters)"]
+Here the errors.full_messages object (which we saw briefly before in Section 6.2.2) contains an array of error messages.
+
+
+The form contains <%=pluralize(@user.errors.count,"error") %>.  => useful stuff !
+
+
+
+assert_no_difference 'User.count' do
+  post users_path, user: { name:  "",
+                           email: "user@invalid",
+                           password:              "foo",
+                           password_confirmation: "bar" }
+end
+Here we’ve included the params[:user] hash expected by User.new in the create action (Listing 7.24).
+By wrapping the post in the assert_no_difference method with the string argument ’User.count’, we
+arrange for a comparison between User.count before and after the contents of the assert_no_difference block.
+This is equivalent to recording the user count, posting the data, and verifying that the count is the same:

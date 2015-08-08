@@ -1,0 +1,3 @@
+Listing 5.28: Generating a Users controller (with a new action).
+
+$ rails generate controller Users new

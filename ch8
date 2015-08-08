@@ -1,0 +1,35 @@
+redirect_to ..
+this is used to redirect to a route
+
+
+session[:user_id]=user.id    // this will save the current user's id in the temporary (session) cookie
+
+
+Having created a fixture with a valid user, we can retrieve it inside a test as follows:
+user = users(:michael)
+The users is the name of the fixture , users.yml and michael is the key to reference the user is users.yml
+
+This will assert a redirect to given path. Eg:
+assert_redirected_to @user
+
+follow_redirect! will follow a redirect and actually visit that page. Use this within test fixtures
+
+To test that there are links for a certain path:
+assert_select "a[href=?]", login_path, count: 0              // the count 0 ensures no links
+//omit count: 0 to test presence of links
+
+Logging in , Logging Out:
+REST api:
+session#create => login
+session#destroy => logout
+We basically log in a user by storing his user_id in the session hash. To log out the user , remove the user_id from the
+session hash using session.delete(:user_id). Also assign current_user=nil immediately after this.
+
+Generate a random string as a token for long persistence (in cookie) :
+SecureRandom.urlsafe_base64
+
+
+Set a cookie value that expires 20 years from now :
+Short: cookies.permanent[:remember_token] = remember_token
+original : cookies[:remember_token] = { value:   remember_token,
+                             expires: 20.years.from_now.utc }

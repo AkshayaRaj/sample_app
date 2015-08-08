@@ -1,0 +1,54 @@
+user.reload.email -> will take back the changes from the database
+
+update multiple attributes:
+user.update_attributes(name: "Akshaya", email:"ard.astro@gmail.com")
+
+Update a single attribute this way to bypass contraint restrictions:
+>> user.update_attribute(:name, "The Dude")
+=> true
+>> user.name
+=> "The Dude"
+
+http://www.xvideos.com/profiles/coolattitude#_tabVideos
+
+users.error and users.error.full_messages will help find all violated validations
+
+the dup method is used to create a duplicate user :
+duplicate_user = @user.dup
+
+ rails generate migration add_index_to_users_email
+ in the change method of the migration:
+     add_index :users,:email,unique: true
+
+sql trigger equivalent seems to be callbacks in ActiveRecord. Eg:
+before_save {self.email=email.downcase}  //added to  User class in user.rb
+
+The only requirement for has_secure_password to work its magic is for the
+corresponding model to have an attribute called password_digest.
+
+How to create migrations really fast: eg:
+rails generate migration add_password_digest_to_users password_digest:string
+
+
+user = User.find_by(email: "mhartl@example.com")
+
+$ git push heroku
+$ heroku run rake db:migrate
+
+user.authenticate("correct_password") --> this will return the user object itself
+
+6.4.1 What we learned in this chapter
+
+    Migrations allow us to modify our application’s data model.
+    Active Record comes with a large number of methods for creating and manipulating data models.
+    Active Record validations allow us to place constraints on the data in our models.
+    Common validations include presence, length, and format.
+    Regular expressions are cryptic but powerful.
+    Defining a database index improves lookup efficiency while allowing enforcement of uniqueness at the database level.
+    We can add a secure password to a model using the built-in has_secure_password method.
+
+
+@user.save will save the user to the database
+
+@user.reload will reload the user from the database .. now get refreshed attributes as:
+@user.reload.email
