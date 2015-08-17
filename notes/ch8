@@ -28,8 +28,15 @@ session hash using session.delete(:user_id). Also assign current_user=nil immedi
 Generate a random string as a token for long persistence (in cookie) :
 SecureRandom.urlsafe_base64
 
+The hashed version of the random string will be updated as the remember_digest token for each user in the database.
+To add remember_digest to the database use the following migration :
+$ rails generate migration add_remember_digest_to_users remember_digest:string
 
 Set a cookie value that expires 20 years from now :
 Short: cookies.permanent[:remember_token] = remember_token
 original : cookies[:remember_token] = { value:   remember_token,
                              expires: 20.years.from_now.utc }
+
+attr_accessor : An attribute accessor is used to access the attribute in a Model . Example:
+We create an accessor for remember_token attribute in the User model:
+attr_accessor :remember_token

@@ -7,6 +7,8 @@ $gray-medium-light: #eaeaea;
 $light-gray: #777;
 
 
+
+
 html, html a {
     -webkit-font-smoothing: antialiased;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
@@ -27,6 +29,7 @@ html, html a {
   @include box_sizing;
 
 }
+
 
 
 
@@ -156,6 +159,21 @@ aside{
 
 
 /* forms */
+
+.checkbox{
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span{
+    margin-left: 20px;
+    font-weight: normal;
+
+  }
+}
+
+#session_remember_me{
+  width: auto;
+  margin-left: 0;
+}
 
 input,textarea,select, .uneditable-input{
   border: 1px solid #bbb;

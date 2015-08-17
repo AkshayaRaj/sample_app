@@ -3,7 +3,7 @@ user.reload.email -> will take back the changes from the database
 update multiple attributes:
 user.update_attributes(name: "Akshaya", email:"ard.astro@gmail.com")
 
-Update a single attribute this way to bypass contraint restrictions:
+Update a single attribute this way to bypass constraint restrictions:
 >> user.update_attribute(:name, "The Dude")
 => true
 >> user.name
