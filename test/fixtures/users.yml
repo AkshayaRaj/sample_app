@@ -3,3 +3,37 @@ akshaya:
   name: Akshaya Test
   email: akshay@test.com
   password_digest: <%= User.digest('password') %>
+  admin: true
+
+goutham:
+  name: Malle Veera goutham
+  email: goutham@gmail.com
+  password_digest: <%= User.digest('password') %>
+
+michael:
+  name: Michael Example
+  email: michael@example.com
+  password_digest: <%= User.digest('password') %>
+
+archer:
+  name: Sterling Archer
+  email: duchess@example.gov
+  password_digest: <%= User.digest('password') %>
+
+lana:
+  name: Lana Kane
+  email: hands@example.gov
+  password_digest: <%= User.digest('password') %>
+
+mallory:
+  name: Mallory Archer
+  email: boss@example.gov
+  password_digest: <%= User.digest('password') %>
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  name: <%= "Test-name-#{n}" %>
+  email: <%= "test-name-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+
+<%end %>
