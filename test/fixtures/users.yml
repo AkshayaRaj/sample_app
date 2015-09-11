@@ -10,6 +10,7 @@ goutham:
   email: goutham@gmail.com
   password_digest: <%= User.digest('password') %>
 
+
 michael:
   name: Michael Example
   email: michael@example.com

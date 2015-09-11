@@ -7,6 +7,11 @@ class UsersControllerTest < ActionController::TestCase
     @other_user=users(:goutham)
   end
 
+  test "should not allow admin attribute to be editable via the web" do
+    log_in_as(@other_user)
+    patch :update, id: @other_user, user: {password: 'password', password_confirmation: 'password', admin: true }
+    assert_not @other_user.reload.admin?
+  end
 
   test "should get new" do
     get :new

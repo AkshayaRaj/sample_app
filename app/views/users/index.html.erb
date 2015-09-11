@@ -4,7 +4,13 @@
 <%= will_paginate %>
 
 <ul class="users"
-  <%= render @users %>
+<li></li>
+<% @users.each do |user| %>
+
+  <%= render user %>
+
+<% end%>
+
 </ul>
 
 <%= will_paginate %>
