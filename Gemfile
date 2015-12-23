@@ -42,6 +42,7 @@ group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'sqlite3'
+  gem "nifty-generators"
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -60,3 +61,5 @@ group :test do
   gem 'mini_backtrace',     '0.1.3'
   gem 'guard-minitest',     '2.3.1'
 end
+
+gem 'mocha', group: :test
