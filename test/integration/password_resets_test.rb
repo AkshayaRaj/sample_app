@@ -46,11 +46,11 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
       user: {password: "foobar",
              password_confirmation: "bazz"}
     assert_select 'div#error_explanation'
-    #blank password and confirmation
+    #blank password
     patch password_reset_path(user.reset_token),
       email:user.email,
       user: {password: "",
-             password_confirmation: " "}
+             password_confirmation: "foobar"}
     assert_not flash.empty?
     assert_template 'password_resets/edit'
     #valid password and confirmation
@@ -63,7 +63,16 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     assert_redirected_to user
 
     #valid password but reset expired
-    
+    user.update_attribute :reset_sent_at,Time.zone.now-2.hours
+    patch password_reset_path(user.reset_token),
+      email:user.email,
+      user: {password: "foobar",
+             password_confirmation: "foobar"}
+    assert_not flash.empty?
+    assert_redirected_to new_password_reset_url
+
+
+
 
 
 
