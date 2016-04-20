@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
             uniqueness: {case_sensitive: false}
 
   has_secure_password
-  validates :password, length:{minimum: 6},presence: true, allow_nil: true
+  validates :password, length:{minimum: 3},presence: true, allow_nil: true
 
   class << self
       def digest(string)
